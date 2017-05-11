@@ -24,5 +24,4 @@ test {
 applicationName = "todo"
 mainClassName = 'App'
 
-defaultTasks = ['clean']
 task stage(dependsOn: ['clean', 'installApp'])
