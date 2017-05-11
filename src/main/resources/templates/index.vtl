@@ -1,0 +1,40 @@
+<h1>Welcome to the To Do List Application</h1>
+
+<h2> All Lists: </h2>
+
+#if($categories)
+  <p>Click on a category to see its tasks:</p>
+  <ul>
+    #foreach ($category in $categories)
+      <li><a href="/categories/$category.getId()">$category.getName()</a></li>
+    #end
+  </ul>
+#else
+  <p>There are no categories yet</p>
+#end
+
+<h2>New Category:</h2>
+
+<form action="/categories" method="post">
+  <div class="form-group">
+    <label for="name">Category name</label>
+    <input id="name" class="form-control" name="name" type="text">
+  </div>
+  <button type="submit" class="btn btn-success">Add Category</button>
+</form>
+
+<form action="/tasks" method="post">
+  <div class="form-group">
+    <label for="categoryId">Select a list</label>
+    <select id="categoryId" name="categoryId" type="text">
+      #foreach($category in $categories)
+        <option value="$category.getId()">$category.getName()</option>
+      #end
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input id="description" class="form-control" name="description" type="text">
+  </div>
+  <button type="submit" class="btn btn-success">Add Task</button>  
+</form>

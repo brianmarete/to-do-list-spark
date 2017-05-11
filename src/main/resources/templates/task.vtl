@@ -1,0 +1,17 @@
+<h1>$task.getDescription()</h1>
+<h2>Completed?: $task.isCompleted()</h2>
+<h2>Belongs to: $category.getName() list.</h2>
+
+<h2>Edit task:</h2>
+
+<form action="/categories/$task.getCategoryId()/tasks/$task.getId()" method="post">
+  <label for="description">Description</label>
+  <input id="description" name="description" type="text">
+  <button type="submit" class="btn btn-info">Update Task</button>
+</form>
+
+<form action"/categories/$task.getCategoryId()/tasks/$task.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-task">Delete Task</button>
+</form>
+
+<a href="/categories/$category.getId()">Return to $category.getName()</a>
