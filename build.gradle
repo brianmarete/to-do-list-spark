@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: "jacoco"
 
 repositories {
     jcenter()
@@ -23,5 +24,13 @@ test {
 
 applicationName = "todo"
 mainClassName = 'App'
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
 
 task stage(dependsOn: ['clean', 'installDist'])
